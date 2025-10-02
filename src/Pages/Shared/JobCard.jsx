@@ -33,8 +33,8 @@ const JobCard = ({ job }) => {
                         }
                     </div>
                     <div className='flex items-center mt-2'>
-                        <p className='font-medium text-lg'>{salaryRange.min}-{salaryRange.max} {salaryRange.currency}</p>
-                        <NavLink to={`/jobs/${job._id}`}><button className='btn btn-primary'>Apply Now</button></NavLink>
+                        <p className='font-medium t'>{salaryRange.min}-{salaryRange.max} {salaryRange.currency}</p>
+                        <NavLink to={`/jobs/${job._id}`}><button className='btn btn-primary'>Details</button></NavLink>
                     </div>
                 </div>
             </div>
