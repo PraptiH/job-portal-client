@@ -1,6 +1,6 @@
 import React, { use } from 'react';
 import { AuthContext } from '../../context/AuthContext';
-import { Link, useNavigate } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import { GoogleAuthProvider } from 'firebase/auth';
 import Lottie from 'lottie-react';
 import signin from '../../assets/lotties/Login and Sign up.json'
@@ -10,6 +10,8 @@ const SignIn = () => {
 
     const { signInUser, createUser2 } = use(AuthContext)
     const navigate = useNavigate()
+    const location = useLocation()
+    const from = location.state || '/'
 
     const handleSignIn = e => {
         e.preventDefault()
@@ -21,7 +23,7 @@ const SignIn = () => {
         signInUser(email, password)
             .then(() => {
                 alert("Log into your account successfully")
-                navigate("/")
+                navigate(from)
             })
             .catch((error) => {
                 console.log(error)
@@ -32,7 +34,7 @@ const SignIn = () => {
         createUser2(provider)
             .then(() => {
                 alert("Successful google log in")
-                navigate("/")
+                navigate(from)
             })
             .catch(error => {
                 alert("Don not have an account")

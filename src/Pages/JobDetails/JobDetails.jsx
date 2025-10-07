@@ -1,9 +1,9 @@
 import React from 'react';
-import { useLoaderData } from 'react-router';
+import { Link, NavLink, useLoaderData } from 'react-router';
 
 const JobDetails = () => {
 
-    const { title, category, company, company_logo, responsibilities, description, jobType, location, requirements, salaryRange } = useLoaderData()
+    const { _id, title, category, company, company_logo, responsibilities, description, jobType, location, requirements, salaryRange } = useLoaderData()
 
     return (
         <div className='w-11/12 mx-auto my-10'>
@@ -58,6 +58,9 @@ const JobDetails = () => {
                         </tr>
                     </tbody>
                 </table>
+            </div>
+            <div className='text-center mt-8'>
+                <Link to={`/jobapply/${_id}`}><button className='btn btn-primary'>Apply Now</button></Link>
             </div>
         </div>
     );
